@@ -2,6 +2,7 @@ package db
 
 import (
 	model "Sample/Model"
+	"fmt"
 	"log"
 	"os"
 
@@ -24,7 +25,13 @@ func ConnectDb() {
 		log.Fatal("failed to load env")
 	}
 
-	dsn := os.Getenv("DB_DSN")
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true",
+		os.Getenv("DB_USER"),
+		os.Getenv("DB_PASSWORD"),
+		os.Getenv("DB_HOST"),
+		os.Getenv("DB_PORT"),
+		os.Getenv("DB_NAME"),
+	)
 
 	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
