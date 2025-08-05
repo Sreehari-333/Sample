@@ -28,7 +28,7 @@ func Register(c *gin.Context) {
 		Password: data.Password,
 	}
 
-	if err := db.DB.Create(&newuser); err != nil {
+	if err := db.DB.Create(&newuser).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err,
 		})
