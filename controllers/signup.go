@@ -2,6 +2,7 @@ package controllers
 
 import (
 	model "Sample/Model"
+	"Sample/db"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -25,6 +26,13 @@ func Register(c *gin.Context) {
 		Name:     data.Name,
 		Email:    data.Email,
 		Password: data.Password,
+	}
+
+	if err := db.DB.Create(&newuser); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err,
+		})
+		return
 	}
 
 }
