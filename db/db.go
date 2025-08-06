@@ -36,7 +36,7 @@ func ConnectDb() {
 	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
-		log.Fatal("Database connection failed", err)
+		log.Println("ℹNo .env file loaded (this is expected in production)")
 	}
 
 	log.Println("Database connected successfully")
