@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Public(router *gin.Engine) {
+func PublicRoutes(router *gin.Engine) {
 
 	router.GET("/users", controllers.GetAllUsers)
 
