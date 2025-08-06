@@ -1,0 +1,10 @@
+{
+  "build": {
+    "commands": [
+      "go build -o app ./cmd"
+    ]
+  },
+  "start": {
+    "cmd": "./app"
+  }
+}
