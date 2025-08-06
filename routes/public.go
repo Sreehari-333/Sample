@@ -1,13 +1,13 @@
 package routes
 
-import (
-	"Sample/controllers"
+// import (
+// 	"Sample/controllers"
 
-	"github.com/gin-gonic/gin"
-)
+// 	"github.com/gin-gonic/gin"
+// )
 
-func PublicRoutes(router *gin.Engine) {
+// func PublicRoutes(router *gin.Engine) {
 
-	router.GET("/users", controllers.GetAllUsers)
+// 	router.GET("/users", controllers.GetAllUsers)
 
-}
+// }

@@ -12,7 +12,7 @@ func main() {
 
 	router := gin.Default()
 	routes.AuthRoutes(router)
-	routes.PublicRoutes(router)
+	// routes.PublicRoutes(router)
 
 	router.Run(":8080")
 }
