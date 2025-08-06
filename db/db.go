@@ -22,7 +22,7 @@ func ConnectDb() {
 	err = godotenv.Load()
 
 	if err != nil {
-		log.Fatal("failed to load env")
+		log.Println("ℹ No .env file loaded (this is expected in Render)")
 	}
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true",
@@ -36,7 +36,7 @@ func ConnectDb() {
 	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
-		log.Println("ℹNo .env file loaded (this is expected in production)")
+		log.Fatal("Database connection failed", err)
 	}
 
 	log.Println("Database connected successfully")
